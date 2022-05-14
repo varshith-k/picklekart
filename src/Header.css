@@ -1,6 +1,6 @@
 .header{
     height: 60px;
-    display: flex;
+    display:flex;
     align-items: center;
     background-color: black;
     position: sticky;
@@ -9,8 +9,51 @@
 }
 
 .header_logo{
-    width: 50px;
+    width: 70px;
     object-fit: contain;
     margin: 0 20px;
-    margin-top: 5px;
+    margin-top: 0px;
+}
+
+.header_input{
+    width: 100%;
+}
+.header_search{
+    display: flex;
+    flex-grow : 1;
+    /* align-items: center; */
+    border-radius: 24px;
+    /* width: 70px; */
+    /* object-fit: contain; */
+    /* padding: 5px; */
+    /* height: 22px !important; */
+    /* margin: 20 0px; */
+    /* margin-top: 0px; */
+}
+
+.header_icon{
+padding: 5px;
+height: 22px !important;
+background-color: #ec4c84;
+}
+
+.header_optionLineOne{
+font-size: 10px;
+}
+.header_optionLineTwo{
+    font-size: 13px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 900;
+}
+
+.header_nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+.header_option{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
 }
