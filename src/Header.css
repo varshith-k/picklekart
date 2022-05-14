@@ -43,8 +43,7 @@ font-size: 10px;
 
 .header_optionLineTwo{
     font-size: 13px;
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .header_nav{
@@ -57,4 +56,17 @@ font-size: 10px;
     margin-left: 10px;
     margin-right: 10px;
     color: white;
+}
+
+.header_optionBasket{
+    display: flex;
+    align-items: center;
+    color: white;
+
+}
+
+.header_basketCount{
+    margin-left: 10px;
+    margin-right: 10px;
+
 }
