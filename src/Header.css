@@ -40,9 +40,10 @@ background-color: #ec4c84;
 .header_optionLineOne{
 font-size: 10px;
 }
+
 .header_optionLineTwo{
     font-size: 13px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "Lucida Console", "Courier New", monospace;
     font-weight: 900;
 }
 
