@@ -1,12 +1,16 @@
-.home_container{
+.home_image{
     width: 100%;
+    z-index: -1;
+    /* border: 10 px  #f7a239; */
+    background-size: cover;
+    /* width: 100%;
     object-fit: cover;
     max-height:100%;
-    max-width: 100%;
+    max-width: 100%; */
     /* flex: 1; */
-    left: 0;
+    /* left: 0;
     right: 0;
-    z-index: -1;
+  */
     /* position: absolute; */
     margin-bottom: -150px;
     mask-image: linear-gradient(to bottom,rgba(0,0,0,1) ,rgba(0,0,0,0));
