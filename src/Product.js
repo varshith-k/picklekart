@@ -1,21 +1,23 @@
 import React from 'react'
 import "./Product.css";
-
-function Product() {
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+function Product({title, image, price, category}) {
   return (
     <div className='product'>
     <div className='product_info'>
-      <p>A - Pickle</p>
+      <p>{title}</p>
       <p className='product_price'>
-        <small>INR</small>
-        <strong>250</strong>
-        <small>Rs/KG</small>
+        <small>INR </small>
+        <strong>{price}</strong>
+        <small> Rs/KG</small>
       </p>
       <div className='product_type'>
-        <p>🥩</p>
+        <p>{category}</p>
         </div>
       </div>
-      <img src=''
+      <img src={image} alt=''/>
+      
+      <button>Add To <ShoppingCartIcon/></button>
     </div>
   )
 }

@@ -7,17 +7,17 @@ function Home() {
        <div className='home_container'>
            <img className='home_image'  src='/images/PicklesBanner.png' alt="Banner"/>
            <div className='home_row'>
+           <Product title='Pickle-A' price={200} image="/images/pickle-a.jpg" category={'🥩'}/>
            <Product/>
-           <Product/>
+        
+           </div> 
+           <div className='home_row'>
            <Product/>   
               <Product/>   
                  <Product/>
-           </div> 
-           <div className='home_row'>
-          
            </div>
            <div className='home_row'>
-               {/* Product */}              
+           <Product/>   
            </div>
        </div>
        </div>
