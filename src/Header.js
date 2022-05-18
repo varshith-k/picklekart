@@ -2,14 +2,16 @@ import React from 'react'
 import './Header.css'
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
+import {Link} from "react-router-dom";
 function Header() {
   return (
     <div className='header'>
+      <Link to='/'>
         <img 
         className='header_logo' 
         src='/images/jarlogo.svg'
         alt='Picklekart-Logo'></img>
+        </Link>
         <div
         className='header_search'>
             <input className='header_input' type="text"/>
