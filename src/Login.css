@@ -1,0 +1,14 @@
+.login{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login_logo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
