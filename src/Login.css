@@ -4,6 +4,18 @@
     flex-direction: column;
     align-items: center;
 }
+
+body{
+    background-color: pink;
+}
+
+.login_bar{
+    background-size: 0% 2%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    background-color: white;
+}
 .login_logo{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -11,4 +23,37 @@
     width: 70px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.login_container{
+background-color: lightpink;
+width: 300px;
+height: fit-content;
+display: flex;
+flex-direction: column;
+border-radius: 5px;
+border: 1px solid lightgrey;
+padding: 20px;
+}
+
+.login_container > h1{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.login_container > form > h5{
+    margin-bottom: 5px;
+}
+
+.login_container > form > input{
+height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
+}
+
+.login_container > p{
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 10px;
+
 }
