@@ -1,8 +1,24 @@
 import React, {useState} from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom';
+import { auth } from './firebase';
 function Login() {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const signIn = e => {
+    e.preventDefault()
+    //firebase stuff
+    
+  }
+  const register = e => {
+    e.preventDefault()
+    auth
+    .createUserWithEmailAndPassowrd(email,password)
+    .then((auth) => {
+      console.log(auth);
+    })
+    .catch(error => alert(error.message))
+  }
   return (
     <div className='login'>
         <div className='login_bar'>
@@ -14,14 +30,14 @@ function Login() {
      <h1>Sign In</h1>
      <form>
          <h5>E-mail</h5>
-         <input type='text'></input>
+         <input type='text' value={email} onChange={e => setEmail(e.target.value)}></input>
          <h5>Password</h5>
-         <input type='password'></input>
-         <button>Sign In</button>
+         <input type='password' value={password} onChange={e => setPassword(e.target.value)}></input>
+         <button type='submit' onClick={signIn} className='login_signIn'>Sign In</button>
      </form>
      <p>By signing in you are now a member of Picklekart fam!</p>
 
-     <button className='login_registerButton'>Become a PickleKart'er</button>
+     <button onClick={register} className='login_registerButton'>Become a PickleKart'er</button>
 
  </div>
     </div>
