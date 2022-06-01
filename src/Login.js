@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom';
 function Login() {
+  const [email, setEmail] = useState('');
   return (
     <div className='login'>
         <div className='login_bar'>
@@ -18,7 +19,7 @@ function Login() {
          <input type='password'></input>
          <button>Sign In</button>
      </form>
-     <p>By signing in you are a member of Picklekart fam!</p>
+     <p>By signing in you are now a member of Picklekart fam!</p>
 
      <button className='login_registerButton'>Become a PickleKart'er</button>
 
