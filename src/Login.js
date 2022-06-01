@@ -2,7 +2,9 @@ import React, {useState} from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom';
 import { auth } from './firebase';
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 function Login() {
+  // const auth = getAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signIn = e => {
@@ -12,8 +14,7 @@ function Login() {
   }
   const register = e => {
     e.preventDefault()
-    auth
-    .createUserWithEmailAndPassowrd(email,password)
+    auth.createUserWithEmailAndPassword(email,password)
     .then((auth) => {
       console.log(auth);
     })
