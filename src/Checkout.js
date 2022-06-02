@@ -4,12 +4,14 @@ import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './StateProvider'
 import Subtotal from './Subtotal'
 function Checkout() {
-   const [{basket}] = useStateValue();
+  //eslint-disable-next-line
+   const [{basket, user}, dispatch] = useStateValue();
   return (
     <div className='checkout'>
       <div className='checkout_left'>
         <img className='checkout_ad' src='\images\advertise.jpg' alt=''></img>
         <div>
+          <h3>Hello, {user?.email}</h3>
         <h2 className='checkout_title'>
           Your Kart
           </h2>
