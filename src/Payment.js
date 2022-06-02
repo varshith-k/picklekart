@@ -5,6 +5,7 @@ import './Payment.css'
 import { useStateValue } from './StateProvider'
 
 function Payment() {
+    //eslint-disable-next-line
     const [{basket, user}, dispatch] = useStateValue();
   return (
     <div className='payment'>

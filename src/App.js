@@ -4,6 +4,8 @@ import './App.css';
 import Header from './Header';
 import Home from './Home';
 import Login from './Login';
+import Payment from './Payment';
+
 // import Product from './Product';
 //Listener to see who is logged in
 import { useEffect } from 'react';
@@ -11,7 +13,14 @@ import { auth } from './firebase';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Checkout from './Checkout';
 import { useStateValue } from './StateProvider';
+
+
+
+
+
+
 function App() {
+  // eslint-disable-next-line
   const [{}, dispatch] = useStateValue();
   // like an if statement in react
   useEffect(() => {
@@ -31,9 +40,8 @@ function App() {
         })
 
       }
-    })
-    return () => {
-    }
+    });
+      //eslint-disable-next-line
   }, [ ])
   
   return (
@@ -41,23 +49,26 @@ function App() {
     <BrowserRouter>
     <div className="app">
       <Routes>
-      <Route path='/' element={<>    
-      <Header/>
-<Home/></>} />
-          {/* <Header/> */}
-          {/* <Home/> */}
-      <Route path='/login' element={
-      <>
-      <Login/>
-      </>
-    } />
+       <Route path='/' element={<>    
+        <Header/>
+        <Home/></>
+       } />
+          
+       <Route path='/login' element={<>
+        <Login/></>
+       } />
 
-      <Route path='/checkout' element={<>    
-      <Header/>
-<Checkout/></>}/>
-          {/* <Header/> */}
-        {/* </Route> */}
-        </Routes>
+       <Route path='/checkout' element={<>    
+        <Header/>
+        <Checkout/></>
+      }/>
+      <Route path='/payment' element={<>    
+       <Header/>
+       <Payment/>
+         </>
+     }/>
+    
+      </Routes>
       </div>
      </BrowserRouter>
   );

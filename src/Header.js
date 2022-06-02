@@ -6,7 +6,8 @@ import {Link} from "react-router-dom";
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 function Header() {
-  const [{basket, user}] = useStateValue();
+  // eslint-disable-next-line
+  const [{basket, user},dispatch] = useStateValue();
   const handleAuthentication = () =>{
      if(user){
        auth.signOut();
