@@ -1,0 +1,32 @@
+.payment{
+    background-color: white;
+}
+
+.payment_title{
+flex: 0.2;
+}
+.payment_addresss{
+    /* , .payment_item */
+    flex: 0.8;
+}
+
+.payment_container > h1{
+    text-align: center;
+    padding: 10px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f489ac;
+    border-bottom: 1px solid pink;
+
+}
+
+.payment_section{
+    display: flex;
+    border-bottom: 1px solid lightgray ;
+    padding: 20px;
+    margin: 0 20px;
+}
+
+.payment_container > h1 a{
+    text-decoration: none;
+}
