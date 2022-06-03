@@ -1,12 +1,24 @@
+import { useElements } from '@stripe/react-stripe-js';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
 import { useStateValue } from './StateProvider'
+import { CardElement } from '@stripe/react-stripe-js';
+import { useStripe } from '@stripe/react-stripe-js';
 
 function Payment() {
     //eslint-disable-next-line
     const [{basket, user}, dispatch] = useStateValue();
+    const handleSubmit = e => {
+
+    }
+    const handleChange = e => {
+
+    }
+    const stripe = useStripe();
+    const elements = useElements();
+
   return (
     <div className='payment'>
         < div className='payment_container'>
@@ -44,7 +56,10 @@ function Payment() {
         <h3>Payment Method</h3>
         </div>
         <div className='payment_details'>
-
+{/* Stripe Magic */}
+<form onSubmit={handleSubmit}>
+    <CardElement onChange={handleChange}/>
+    </form>
         </div>
         </div>
         {/* Payment Section - Delivery Address

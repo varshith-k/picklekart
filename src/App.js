@@ -14,10 +14,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Checkout from './Checkout';
 import { useStateValue } from './StateProvider';
 
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
-
-
-
+const promise = loadStripe('pk_test_51L6GKISCOKFVuCMcrf5Q4Z70xKHBX7WgfbvxjK3ax271Q8Mk9tfsAtmttlgr3IQms446ecv1nHTJULoZDFGM8vCe00XJV7E0yN');
 
 function App() {
   // eslint-disable-next-line
@@ -64,7 +64,9 @@ function App() {
       }/>
       <Route path='/payment' element={<>    
        <Header/>
-       <Payment/>
+       <Elements stripe={promise}>
+                <Payment/>
+       </Elements>
          </>
      }/>
     
