@@ -1,5 +1,5 @@
 import { useElements } from '@stripe/react-stripe-js';
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
@@ -10,14 +10,23 @@ import { useStripe } from '@stripe/react-stripe-js';
 function Payment() {
     //eslint-disable-next-line
     const [{basket, user}, dispatch] = useStateValue();
+
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const [error,setError] = useState(null);
+    // const [processing,setProcessing] = useState(null);
+    const [disabled,setDisabled] = useState(true);
+
     const handleSubmit = e => {
 
     }
-    const handleChange = e => {
-
+    const handleChange = event => {
+        //listen to changes in cardelement
+        //display errors while he types his card number and details
+             setDisabled(event.empty);
+             setError(event.error? event.error.message : "");
     }
-    const stripe = useStripe();
-    const elements = useElements();
 
   return (
     <div className='payment'>
@@ -59,6 +68,7 @@ function Payment() {
 {/* Stripe Magic */}
 <form onSubmit={handleSubmit}>
     <CardElement onChange={handleChange}/>
+    <div className='payment_price'></div>
     </form>
         </div>
         </div>
