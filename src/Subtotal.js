@@ -14,9 +14,7 @@ function Subtotal() {
     <div className='subtotal'>
         <CurrencyFormat
         renderText={(value) =>(<>
-        <p>Subtotal ( {basket?.length} items ): <strong>{value}</strong>
-        </p>
-        <small className='subtotal_gift'><input type='checkbox'/>This order is a gift.</small>
+        <p>Order Total ( {basket?.length} items ): <strong>{value}</strong></p>
         </>)
         }
         decimalScale={2}

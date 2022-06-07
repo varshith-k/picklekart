@@ -1,24 +1,57 @@
 import { useElements } from '@stripe/react-stripe-js';
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState,useEffect } from 'react'
+import { Link,useNavigate } from 'react-router-dom';
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
 import { useStateValue } from './StateProvider'
 import { CardElement } from '@stripe/react-stripe-js';
 import { useStripe } from '@stripe/react-stripe-js';
-
+import CurrencyFormat from 'react-currency-format';
+import { getBasketTotal } from './reducer';
+import axios from './axios'
 function Payment() {
     //eslint-disable-next-line
     const [{basket, user}, dispatch] = useStateValue();
 
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate();
 
     const [error,setError] = useState(null);
-    // const [processing,setProcessing] = useState(null);
+    const [processing,setProcessing] = useState(null);
+    const [succeeded,setSucceeded] = useState(null);
     const [disabled,setDisabled] = useState(true);
+    const [clientSecret,setClientSecret] = useState(true);
 
-    const handleSubmit = e => {
+    useEffect(()=>{
+        //generate special stripe secret that allows us to charge a customer
+       const getClientSecret = async() =>{
+              const response = await axios({
+                  method : 'post',
+                  //stripe expects payments in sub unit for rs it is paisa which is 100p = 1rs
+                  url : `/payments/create?total=${getBasketTotal(basket)*100}`
+              })
+              setClientSecret(response.data.clientSecret)
+       }
+       getClientSecret();
+    },[basket])
+
+    const handleSubmit = async(event) => {
+          event.preventDefault();
+          setProcessing(true);
+          //eslint-disable-next-line
+          const payload = await stripe.confirmCardPayment(clientSecret,{
+              payment_method:{
+                  card: elements.getElement(CardElement)
+              }
+          }).then(({paymentIntent}) => {
+  //payment intent is payment confirmation\
+  setSucceeded(true);
+  setError(null);
+  setProcessing(false);
+  navigate('/orders', { replace: true })
+//   history.replace()
+          })
 
     }
     const handleChange = event => {
@@ -68,7 +101,26 @@ function Payment() {
 {/* Stripe Magic */}
 <form onSubmit={handleSubmit}>
     <CardElement onChange={handleChange}/>
-    <div className='payment_price'></div>
+    <div className='payment_priceContainer'>
+    <CurrencyFormat
+        renderText={(value) =>(<>
+        <p>Subtotal ( {basket?.length} items ): <strong>{value}</strong>
+        </p>
+        {/* <small className='subtotal_gift'><input type='checkbox'/>This order is a gift.</small> */}
+        </>)
+        }
+        decimalScale={2}
+        // value={getBasketTotal(basket)}
+        value={getBasketTotal(basket)}
+        //val that is printed
+        displayType={'text'}
+        thousandSeparator={true}
+        prefix={"₹"}
+    />
+    <button disabled={processing || disabled || succeeded}>
+    <span>{processing? <p>Processing</p> : "Buy Now"} </span></button>
+    </div>
+    {error && <div>{error}</div>}
     </form>
         </div>
         </div>
