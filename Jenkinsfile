@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // sh 'npm start' 
                 input message: 'Wanna Quit? (Click "Proceed" to continue)' 
-                sh 'exit' g
+                sh 'exit' 
                 // sh 'firebase deploy'
             }
         }
