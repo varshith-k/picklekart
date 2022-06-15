@@ -19,8 +19,9 @@ pipeline {
         stage('Deliver') { 
             steps {
                 // sh 'npm start' 
-                input message: 'Finished using the web site? (Click "Proceed" to continue)' 
-                sh 'exit' 
+                input message: 'Wanna Deploy? (Click "Proceed" to continue)' 
+                // sh 'exit' 
+                sh 'firebase deploy'
             }
         }
     }
